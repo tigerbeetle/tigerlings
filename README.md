@@ -1,0 +1,32 @@
+# Tigerlings
+
+Welcome to Tigerlings!
+
+TigerBeetle is the financial transactions database built for unparalleled performance and mission-critical safety.
+
+This project is an interactive tutorial that teaches you how to use TigerBeetle by fixing small scripts.
+Each script has some small error that you'll need to correct -- but don't worry, we'll explain everything you need to know!
+
+This project was directly inspired by the [Ziglings](https://ziglings.org) and [rustlings](https://github.com/rust-lang/rustlings) projects.
+
+## Getting Started
+
+```shell
+git clone https://github.com/tigerbeetle/tigerlings.git
+cd tigerlings
+./run.sh
+```
+
+And that's it!
+
+The [run.sh](./run.sh) script runs each exercise, one at a time, and stops at the first broken one.
+
+You can get started with exercise [000_download.sh](./exercises/000_download.sh), which, as you might guess, helps you download TigerBeetle.
+
+Happy learning!
+
+## Need Help
+
+If you have questions about any of the exercises, feel free to open an issue on this repository or ask a question in the [TigerBeetle Slack](https://slack.tigerbeetle.com/invite). We're here to help!
+
+You might also be interested in reading more in the [TigerBeetle docs](https://docs.tigerbeetle.com/).

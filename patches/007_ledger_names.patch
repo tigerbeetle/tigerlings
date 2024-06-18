@@ -1,0 +1,18 @@
+diff --git a/exercises/007_ledger_names.sh b/exercises/007_ledger_names.sh
+index 29eb758..f1b2438 100755
+--- a/exercises/007_ledger_names.sh
++++ b/exercises/007_ledger_names.sh
+@@ -22,10 +22,10 @@ tb "create_accounts id=700 code=10 ledger=${USD_LEDGER},
+                     id=704 code=10 ledger=${YEN_LEDGER},
+                     id=705 code=10 ledger=${YEN_LEDGER};"
+ 
+-tb "create_transfers id=70000 debit_account_id=700 credit_account_id=701 amount=100 ledger=${EUR_LEDGER} code=10;"
++tb "create_transfers id=70000 debit_account_id=700 credit_account_id=701 amount=100 ledger=${USD_LEDGER} code=10;"
+ 
+-tb "create_transfers id=70001 debit_account_id=702 credit_account_id=703 amount=100 ledger=${YEN_LEDGER} code=10;"
++tb "create_transfers id=70001 debit_account_id=702 credit_account_id=703 amount=100 ledger=${EUR_LEDGER} code=10;"
+ 
+-tb "create_transfers id=70002 debit_account_id=704 credit_account_id=705 amount=100 ledger=${USD_LEDGER} code=10;"
++tb "create_transfers id=70002 debit_account_id=704 credit_account_id=705 amount=100 ledger=${YEN_LEDGER} code=10;"
+ 
+ # Uh oh! We mixed up which transfer is on which ledger. Can you fix them?

@@ -1,0 +1,10 @@
+diff --git a/exercises/016_balance_limits.sh b/exercises/016_balance_limits.sh
+index a5d695c..5805d01 100755
+--- a/exercises/016_balance_limits.sh
++++ b/exercises/016_balance_limits.sh
+@@ -22,4 +22,4 @@ tb "create_transfers id=16000 debit_account_id=$CUSTOMER credit_account_id=$BANK
+ 
+ # Now, the customer wants to withdraw money fromt the bank.
+ # But they're trying to withdraw too much! Can you fix the amount so this transfer succeeds?
+-tb "create_transfers id=16001 debit_account_id=$BANK credit_account_id=$CUSTOMER amount=200 ledger=160 code=10;"
++tb "create_transfers id=16001 debit_account_id=$BANK credit_account_id=$CUSTOMER amount=100 ledger=160 code=10;"

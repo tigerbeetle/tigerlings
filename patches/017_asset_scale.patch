@@ -1,0 +1,22 @@
+diff --git a/exercises/017_asset_scale.sh b/exercises/017_asset_scale.sh
+index 7080c56..c4ddc1c 100755
+--- a/exercises/017_asset_scale.sh
++++ b/exercises/017_asset_scale.sh
+@@ -10,7 +10,7 @@ tb "create_accounts id=1700 code=10 ledger=170,
+ # Let's try transferring 1.5 units between the two accounts:
+ amount=1.5
+ 
+-tb "create_transfers id=17000 debit_account_id=1700 credit_account_id=1701 amount=$amount ledger=170 code=10;"
++# tb "create_transfers id=17000 debit_account_id=1700 credit_account_id=1701 amount=$amount ledger=170 code=10;"
+ # Uh oh! That doesn't work. (Maybe comment it out and we'll fix it below)
+ 
+ # TigerBeetle only uses integer amounts for precision and performance reasons.
+@@ -32,7 +32,7 @@ balance=$(tb "lookup_accounts id=1700;" | grep "debits_posted" | cut -d'"' -f4)
+ 
+ # If we want to display the balance to the user, we'll want to scale it back down to a decimal.
+ # Math in bash is complicated -- but can you replace the ??? with the right operation?
+-balance=$(echo "scale=$LEDGER_SCALE; $balance ??? $scaling_factor" | bc)
++balance=$(echo "scale=$LEDGER_SCALE; $balance / $scaling_factor" | bc)
+ 
+ if [[ $balance =~ ^[0-9]+\.[0-9]+$ ]]; then
+     echo "Balance: $balance"

@@ -1,0 +1,20 @@
+diff --git a/exercises/021_linked_transfers.sh b/exercises/021_linked_transfers.sh
+index 81589f7..4186bdf 100755
+--- a/exercises/021_linked_transfers.sh
++++ b/exercises/021_linked_transfers.sh
+@@ -34,11 +34,11 @@ tb "create_accounts id=2100 code=10 ledger=200 flags=linked,
+ # - The 6th transfer succeeds on its own
+ 
+ output=$(tb "create_transfers id=21000 debit_account_id=2100 credit_account_id=2102 amount=100 ledger=200 code=10 flags=linked,
+-                              id=21001 debit_account_id=2101 credit_account_id=2103 amount=100 ledger=201 code=10 flags=linked,
+-                              id=21002 debit_account_id=2102 credit_account_id=2100 amount=100 ledger=299 code=10 flags=linked,
++                              id=21001 debit_account_id=2101 credit_account_id=2103 amount=100 ledger=201 code=10,
++                              id=21002 debit_account_id=2102 credit_account_id=2100 amount=100 ledger=299 code=10,
+                               id=21003 debit_account_id=2103 credit_account_id=2101 amount=100 ledger=201 code=10 flags=linked,
+-                              id=21004 debit_account_id=2199 credit_account_id=2101 amount=100 ledger=200 code=10 flags=linked,
+-                              id=21005 debit_account_id=2100 credit_account_id=2102 amount=100 ledger=200 code=10 flags=linked;")
++                              id=21004 debit_account_id=2199 credit_account_id=2101 amount=100 ledger=200 code=10,
++                              id=21005 debit_account_id=2100 credit_account_id=2102 amount=100 ledger=200 code=10;")
+ 
+ if [[ $output =~ *"Failed to create transfer \(0|1|5\)"* || 
+       $output != *"Failed to create transfer (2): tigerbeetle.CreateTransferResult.transfer_must_have_the_same_ledger_as_accounts."* ||

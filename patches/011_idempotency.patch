@@ -1,0 +1,22 @@
+diff --git a/exercises/011_idempotency.sh b/exercises/011_idempotency.sh
+index 773eb3a..173ea06 100755
+--- a/exercises/011_idempotency.sh
++++ b/exercises/011_idempotency.sh
+@@ -15,7 +15,7 @@ tb "create_accounts id=1100 code=10 ledger=110;"
+ 
+ # What if we try to create the same account with different details?
+ 
+-tb "create_accounts id=1100 code=99 ledger=110;"
++tb "create_accounts id=1100 code=10 ledger=110;"
+ # Can you fix this so the request works?
+ 
+ # The same applies for transfers:
+@@ -25,7 +25,7 @@ tb "create_transfers id=11000 debit_account_id=1100 credit_account_id=1101 amoun
+ tb "create_transfers id=11000 debit_account_id=1100 credit_account_id=1101 amount=100 ledger=110 code=10;"
+ 
+ # As before, this one will fail because the transfer details are different:
+-tb "create_transfers id=11000 debit_account_id=1100 credit_account_id=1101 amount=99999 ledger=110 code=10;"
++tb "create_transfers id=11000 debit_account_id=1100 credit_account_id=1101 amount=100 ledger=110 code=10;"
+ # Can you fix this too?
+ 
+ # You may notice in the logs that duplicate requests will fail with the "exists" error.

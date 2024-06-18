@@ -1,0 +1,13 @@
+diff --git a/exercises/005_create_transfer.sh b/exercises/005_create_transfer.sh
+index 40867a8..bef5bd0 100755
+--- a/exercises/005_create_transfer.sh
++++ b/exercises/005_create_transfer.sh
+@@ -9,7 +9,7 @@ tb "create_accounts id=500 code=10 ledger=50,
+ 
+ # Then, we'll create a transfer between them.
+ # Unfortunately, this command is missing something! Try running it to see what happens.
+-tb "create_transfers debit_account_id=500 credit_account_id=501 amount=100 ledger=50 code=10;"
++tb "create_transfers id=50000 debit_account_id=500 credit_account_id=501 amount=100 ledger=50 code=10;"
+ 
+ # Just like Accounts, all Transfers are uniquely identified by an ID!
+ 

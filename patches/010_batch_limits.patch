@@ -1,0 +1,13 @@
+diff --git a/exercises/010_batch_limits.sh b/exercises/010_batch_limits.sh
+index d5ff13b..e277a5d 100755
+--- a/exercises/010_batch_limits.sh
++++ b/exercises/010_batch_limits.sh
+@@ -20,7 +20,7 @@ tb "${create_account_batch%, };"
+ # Now let's do the same for transfers!
+ 
+ create_transfer_batch="create_transfers "
+-for ((i=0; i<8191; i++)); do
++for ((i=0; i<8190; i++)); do
+     create_transfer_batch+="id=$((100000 + i))
+         debit_account_id=$((100000 + i))
+         credit_account_id=$((100000 + (1 + i) % 8190))

@@ -1,0 +1,15 @@
+diff --git a/exercises/004_create_accounts.sh b/exercises/004_create_accounts.sh
+index 37d73d8..18d6042 100755
+--- a/exercises/004_create_accounts.sh
++++ b/exercises/004_create_accounts.sh
+@@ -6,8 +6,8 @@ source ./tools/tb_function.sh
+ 
+ # We want to create a couple of accounts.
+ # However, this request has a problem. Can you spot it?
+-tb "create_accounts id=300 code=10 ledger=40,
+-                    id=401 code=10;"
++tb "create_accounts id=400 code=10 ledger=40,
++                    id=401 code=10 ledger=40;"
+ 
+ # Hint 1: All account IDs are globally unique (and we created an account in the previous exercise...).
+ # Hint 2: All accounts are partitioned into `ledgers` (more on this soon).

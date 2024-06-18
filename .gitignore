@@ -1,0 +1,7 @@
+*.tigerbeetle
+tigerbeetle
+tigerbeetle_repo
+*.zip
+zig
+.zig-cache
+.DS_Store

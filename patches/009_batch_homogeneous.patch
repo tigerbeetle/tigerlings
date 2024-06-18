@@ -1,0 +1,16 @@
+diff --git a/exercises/009_batch_homogeneous.sh b/exercises/009_batch_homogeneous.sh
+index 17acd2b..4ad2315 100755
+--- a/exercises/009_batch_homogeneous.sh
++++ b/exercises/009_batch_homogeneous.sh
+@@ -6,8 +6,9 @@ source ./tools/tb_function.sh
+ # Can we combine the two?
+ 
+ tb "create_accounts     id=900 code=10 ledger=90,
+-                        id=901 code=10 ledger=90,
+-    create_transfers    id=90000 debit_account_id=900 credit_account_id=901 amount=100 ledger=90 code=10,
++                        id=901 code=10 ledger=90;"
++
++tb "create_transfers    id=90000 debit_account_id=900 credit_account_id=901 amount=100 ledger=90 code=10,
+                         id=90001 debit_account_id=900 credit_account_id=901 amount=100 ledger=90 code=10;"
+ 
+ # Nope!
