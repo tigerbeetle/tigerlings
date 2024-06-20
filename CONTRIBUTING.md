@@ -15,10 +15,11 @@ Thanks for contributing to Tigerlings!
 To add a new Tigerlings exercise:
 
 1. Write the (failing) exercise as a bash script in [exercises](./exercises/).
-2. Add to the [What's Covered](README.md#whats-covered) list in the main README.
-3. Create a commit with that exercise.
-4. Fix the exercise so that it passes and returns a status code of 0.
-5. Run the [tools/patches_generate.sh](./tools/patches_generate.sh) script.
-6. Use `git add patches && git commit --amend` to add the patch file to your commit.
-7. Run [tools/patches_revert.sh](./tools/patches_revert.sh) to revert the fix.
-8. Submit a pull request with your new exercise.
+2. Run `chmod +x exercises/*.sh` to make your script executable.
+3. Add to the [What's Covered](README.md#whats-covered) list in the main README.
+4. Create a commit with that exercise.
+5. Fix the exercise so that it passes and returns a status code of 0.
+6. Run the [tools/patches_generate.sh](./tools/patches_generate.sh) script.
+7. Use `git add patches && git commit --amend` to add the patch file to your commit.
+8. Run [tools/patches_revert.sh](./tools/patches_revert.sh) to revert the fix.
+9. Submit a pull request with your new exercise.

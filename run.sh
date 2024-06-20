@@ -21,11 +21,11 @@ for file in $(ls exercises/[0-9][0-9][0-9]*.sh | sort -n); do
         if  ./tigerbeetle version >/dev/null 2>&1; then
             echo "TigerBeetle is already available. Skipping exercise."
         else
-            bash "$file"
+            "$file"
         fi
     elif [ "$file" = "exercises/002_server.sh" ]; then
         # Execute the file in the background and store its process ID
-        bash "$file" 2>&1 | sed "s/^/${bold}[Server]${normal} /" &
+        "$file" 2>&1 | sed "s/^/${bold}[Server]${normal} /" &
         server_pid=$!
         sleep 1
         if ! kill -0 $server_pid 2>/dev/null; then
@@ -33,7 +33,7 @@ for file in $(ls exercises/[0-9][0-9][0-9]*.sh | sort -n); do
         fi
     else
         # Execute the file normally
-        bash "$file"
+        "$file"
     fi
 
     # Check the exit status
