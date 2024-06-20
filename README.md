@@ -23,6 +23,8 @@ The [run.sh](./run.sh) script runs each exercise, one at a time, and stops at th
 
 You can get started with exercise [000_download.sh](./exercises/000_download.sh), which, as you might guess, helps you download TigerBeetle.
 
+Once you've fixed the download script, run [run.sh](./run.sh) again to have it go to the next exercise.
+
 Happy learning!
 
 ## Need Help

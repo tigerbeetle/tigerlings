@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 source ./tools/processes_descendents_kill.sh
 
@@ -7,6 +8,12 @@ normal=$(tput sgr0)
 
 # Trap the script exit signal and send SIGINT to the server process
 trap 'processes_descendents_kill $$' EXIT SIGHUP SIGINT SIGQUIT SIGTERM SIGKILL
+
+echo "${bold}Welcome to the Tigerlings exercises!${normal}"
+echo ""
+echo "This script will run each exercise and stop when it gets to a broken one."
+echo "Once you've fixed that exercise, run this script again to continue."
+echo ""
 
 # Run each exercise
 for file in $(ls exercises/[0-9][0-9][0-9]*.sh | sort -n); do
@@ -25,10 +32,7 @@ for file in $(ls exercises/[0-9][0-9][0-9]*.sh | sort -n); do
         server_pid=$!
         sleep 1
         if ! kill -0 $server_pid 2>/dev/null; then
-            wait $server_pid
-            if [ $? -ne 0 ]; then
             exit 1
-            fi
         fi
     else
         # Execute the file normally
