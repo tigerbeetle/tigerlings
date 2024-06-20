@@ -1,8 +1,8 @@
 diff --git a/exercises/003_create_account.sh b/exercises/003_create_account.sh
-index 1b3480e..3aba1de 100755
+index 8a98b37..9bc89b4 100755
 --- a/exercises/003_create_account.sh
 +++ b/exercises/003_create_account.sh
-@@ -5,7 +5,7 @@
+@@ -11,7 +11,7 @@
  # To connect to TigerBeetle, we normally use one of the client libraries.
  # However, for these exercises we're just going to use the REPL command via the CLI.
  
