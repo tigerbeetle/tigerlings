@@ -2,7 +2,7 @@
 
 Welcome to Tigerlings!
 
-TigerBeetle is the financial transactions database built for unparalleled performance and mission-critical safety.
+[TigerBeetle](https://tigerbeetle.com) is the financial transactions database built for unparalleled performance and mission-critical safety.
 
 This project is an interactive tutorial that teaches you how to use TigerBeetle by fixing small scripts.
 Each script has some small error that you'll need to correct -- but don't worry, we'll explain everything you need to know!
