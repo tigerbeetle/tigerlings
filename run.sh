@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 source ./tools/processes_descendents_kill.sh
 source ./tools/terminal_format.sh
