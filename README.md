@@ -27,7 +27,7 @@ Once you've fixed the download script, run [run.sh](./run.sh) again to have it g
 
 Happy learning!
 
-## Need Help
+## Need Help?
 
 If you have questions about any of the exercises, feel free to open an issue on this repository or ask a question in the [TigerBeetle Slack](https://slack.tigerbeetle.com/invite). We're here to help!
 
@@ -54,3 +54,4 @@ You might also be interested in reading more in the [TigerBeetle docs](https://d
 - User data
 - Linked transfers
 - Multi-debit, multi-credit transfers
+- Currency exchange

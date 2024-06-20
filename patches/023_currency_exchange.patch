@@ -1,0 +1,16 @@
+diff --git a/exercises/023_currency_exchange.sh b/exercises/023_currency_exchange.sh
+old mode 100644
+new mode 100755
+index 31fe2d7..a5951ba
+--- a/exercises/023_currency_exchange.sh
++++ b/exercises/023_currency_exchange.sh
+@@ -35,7 +35,7 @@ INR_AMOUNT=$(echo "scale=0; $USD_AMOUNT * $USD_TO_INR_EXCHANGE_RATE / 1" | bc)
+ 
+ # Now, let's create a transfer that debits the customer's USD account and credits the customer's INR account.
+ # Can you fill in the missing values?
+-tb "create_transfers id=23000 debit_account_id=2301 credit_account_id=??? amount=$USD_AMOUNT ledger=$USD_LEDGER code=10 flags=???,
+-                     id=23001 debit_account_id=??? credit_account_id=2303 amount=$INR_AMOUNT ledger=$INR_LEDGER code=10;"
++tb "create_transfers id=23000 debit_account_id=2301 credit_account_id=2300 amount=$USD_AMOUNT ledger=$USD_LEDGER code=10 flags=linked,
++                     id=23001 debit_account_id=2302 credit_account_id=2303 amount=$INR_AMOUNT ledger=$INR_LEDGER code=10;"
+ 
+ # This same mechanism can be used to transfer assets between any two (or more!) different ledgers.
