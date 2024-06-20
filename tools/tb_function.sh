@@ -1,7 +1,6 @@
 #!/bin/bash
 
-bold=$(tput bold)
-normal=$(tput sgr0)
+source ./tools/terminal_format.sh
 
 # This is a helper function that simplifies sending individual requests
 # to TigerBeetle using the REPL command in non-interactive mode.

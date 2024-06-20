@@ -2,9 +2,7 @@
 set -e
 
 source ./tools/processes_descendents_kill.sh
-
-bold=$(tput bold)
-normal=$(tput sgr0)
+source ./tools/terminal_format.sh
 
 # Trap the script exit signal and send SIGINT to the server process
 trap 'processes_descendents_kill $$' EXIT SIGHUP SIGINT SIGQUIT SIGTERM SIGKILL
