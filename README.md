@@ -32,3 +32,25 @@ Happy learning!
 If you have questions about any of the exercises, feel free to open an issue on this repository or ask a question in the [TigerBeetle Slack](https://slack.tigerbeetle.com/invite). We're here to help!
 
 You might also be interested in reading more in the [TigerBeetle docs](https://docs.tigerbeetle.com/).
+
+## What's Covered
+
+- Downloading TigerBeetle
+- Creating the data file
+- Running the server
+- Creating accounts
+- Creating transfers
+- Ledgers
+- Batching events
+- Idempotency
+- Debits and credits
+- Looking up accounts
+- Historical account balances
+- Query API (coming soon!)
+- Balance limits
+- Asset scales and integer amounts
+- Account and transfer codes
+- Timestamps
+- User data
+- Linked transfers
+- Multi-debit, multi-credit transfers
