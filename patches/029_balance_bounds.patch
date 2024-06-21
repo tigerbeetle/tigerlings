@@ -1,0 +1,13 @@
+diff --git a/exercises/029_balance_bounds.sh b/exercises/029_balance_bounds.sh
+index 6547401..da8182d 100755
+--- a/exercises/029_balance_bounds.sh
++++ b/exercises/029_balance_bounds.sh
+@@ -27,7 +27,7 @@ tb "create_transfers id=29000 debit_account_id=$OPERATOR_ACCOUNT credit_account_
+ 
+ # Here's where it gets a little crazy.
+ LIMIT_AMOUNT=100
+-TRANSFER_AMOUNT=200
++TRANSFER_AMOUNT=50
+ tb "create_transfers id=29001 debit_account_id=$SOURCE_ACCOUNT      credit_account_id=$DESTINATION_ACCOUNT amount=$TRANSFER_AMOUNT ledger=290 code=10 flags=linked,
+                      id=29002 debit_account_id=$CONTROL_ACCOUNT     credit_account_id=$OPERATOR_ACCOUNT    amount=$LIMIT_AMOUNT    ledger=290 code=10 flags=linked,
+                      id=29003 debit_account_id=$DESTINATION_ACCOUNT credit_account_id=$CONTROL_ACCOUNT     amount=0                ledger=290 code=10 flags=balancing_debit | pending | linked,
