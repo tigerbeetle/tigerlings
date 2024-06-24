@@ -57,3 +57,4 @@ You might also be interested in reading more in the [TigerBeetle docs](https://d
 - Currency exchange
 - Two-phase transfers (pending, posting, voiding, timeouts, and partial amounts)
 - Balancing transfers (used when closing accounts)
+- Balance-conditional transfers
