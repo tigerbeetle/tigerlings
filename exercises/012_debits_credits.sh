@@ -22,7 +22,7 @@ tb "create_accounts id=$BANK code=10 ledger=120,
                     id=$CUSTOMER code=10 ledger=120;"
 
 # And let's say that at some earlier point, the customer deposited $100 into the bank.
-tb "create_transfers id=12000 debit_account_id=$CUSTOMER credit_account_id=$BANK amount=100 ledger=120 code=10;"
+tb "create_transfers id=12000 debit_account_id=$BANK credit_account_id=$CUSTOMER amount=100 ledger=120 code=10;"
 
 # Now, the customer wants to withdraw $20 from the bank.
 # Which account should be debited and which should be credited?
