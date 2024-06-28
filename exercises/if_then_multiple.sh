@@ -13,8 +13,8 @@ source ./tools/tb_function.sh
 
 tb "create_accounts id=10000 code=10 ledger=100 flags=debits_must_not_exceed_credits,
                     id=10001 code=10 ledger=100,
-                    id=1     code=10 ledger=1,
-                    id=2     code=10 ledger=1 flags=credits_must_not_exceed_debits;"
+                    id=1     code=10 ledger=1 flags=debits_must_not_exceed_credits,
+                    id=2     code=10 ledger=1;"
 
 tb "create_transfers id=100000 debit_account_id=10001 credit_account_id=10000 amount=100 ledger=100 code=10;"
 
