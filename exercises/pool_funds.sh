@@ -28,7 +28,7 @@ tb "create_transfers id=1000 debit_account_id=$OPERATOR_ACCOUNT credit_account_i
                      id=1001 debit_account_id=$OPERATOR_ACCOUNT credit_account_id=$ACCOUNT_2 amount=100 ledger=100 code=10;"
 
 # Now, we want to pool funds between ACCOUNT_1 and ACCOUNT_2 to transfer to TARGET_ACCOUNT. 
-POOL_AMOUNT=150 # Change this to 150 to make the transfers succeed.
+POOL_AMOUNT=250 # Change this to 150 to make the transfers succeed.
 
 echo "pooling funds from accounts 1 and 2 to transfer to target account"
 
@@ -45,8 +45,8 @@ echo "pooling funds from accounts 1 and 2 to transfer to target account"
 # The third and fourth blocks of transfers transfer *EXACTLY* the POOL_AMOUNT from ACCOUNT_1 and ACCOUNT_2 to the POOL_ACCOUNT.
 # In each of these blocks, the first transfer (id=11 and id=12) take 1 unit from the IF_ACCOUNT
 # (these would fail if the second block of transfers hadn't put 2 units in the IF_ACCOUNT).
-# Then, they transfer (id=1008, id=1010) the lesser of the POOL_AMOUNT and the net credit balance of ACCOUNT_1 or ACCOUNT_2 to the POOL_ACCOUNT.
-# Then, if the POOL_ACCOUNT now has a credit balance that is *GREATER* than the POOL_AMOUNT they transfer (id=1009, id=1011) the execess back to the account it came from.
+# Then, they transfer (id=1009, id=1011) the lesser of the POOL_AMOUNT and the net credit balance of ACCOUNT_1 or ACCOUNT_2 to the POOL_ACCOUNT.
+# Then, if the POOL_ACCOUNT now has a credit balance that is *GREATER* than the POOL_AMOUNT they transfer (id=1010, id=1012) the execess back to the account it came from.
 # It is important that this last transfer in these blocks is *NOT* linked, because it will fail if the POOL_ACCOUNT's credit balance is less than or equal to the POOL_AMOUNT.
 
 # Finally, the last block of transfers transfers the POOL_AMOUNT from the POOL_ACCOUNT to the TARGET_ACCOUNT
@@ -59,20 +59,21 @@ output=$(tb "create_transfers id=1002 debit_account_id=$CHECK_ACCOUNT credit_acc
                      id=1006 pending_id=1004 code=10 flags=linked | void_pending_transfer,
                      id=10 debit_account_id=$IF_OPERATOR credit_account_id=$IF_ACCOUNT amount=2 ledger=1 code=10 flags=linked | pending,
                      id=11 pending_id=10 code=10 flags=void_pending_transfer,
+                     id=1007 debit_account_id=$OPERATOR_ACCOUNT credit_account_id=$CHECK_ACCOUNT amount=0 ledger=100 code=10 flags=balancing_credit,
 
                      id=10 debit_account_id=$IF_OPERATOR credit_account_id=$IF_ACCOUNT amount=2 ledger=1 code=11 flags=linked,
-                     id=1007 debit_account_id=$POOL_ACCOUNT credit_account_id=$OPERATOR_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10,
+                     id=1008 debit_account_id=$POOL_ACCOUNT credit_account_id=$OPERATOR_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10,
 
                      id=11 debit_account_id=$IF_ACCOUNT credit_account_id=$IF_OPERATOR amount=1 ledger=1 code=10 flags=linked,
-                     id=1008 debit_account_id=$ACCOUNT_1 credit_account_id=$POOL_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10 flags=balancing_debit,
-                     id=1009 debit_account_id=$POOL_ACCOUNT credit_account_id=$ACCOUNT_1 amount=0            ledger=100 code=10 flags=balancing_debit,
+                     id=1009 debit_account_id=$ACCOUNT_1 credit_account_id=$POOL_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10 flags=balancing_debit,
+                     id=1010 debit_account_id=$POOL_ACCOUNT credit_account_id=$ACCOUNT_1 amount=0            ledger=100 code=10 flags=balancing_debit,
                      
                      id=12 debit_account_id=$IF_ACCOUNT credit_account_id=$IF_OPERATOR amount=1 ledger=1 code=10 flags=linked,
-                     id=1010 debit_account_id=$ACCOUNT_2 credit_account_id=$POOL_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10 flags=balancing_debit,
-                     id=1011 debit_account_id=$POOL_ACCOUNT credit_account_id=$ACCOUNT_2 amount=0            ledger=100 code=10 flags=balancing_debit,
+                     id=1011 debit_account_id=$ACCOUNT_2 credit_account_id=$POOL_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10 flags=balancing_debit,
+                     id=1012 debit_account_id=$POOL_ACCOUNT credit_account_id=$ACCOUNT_2 amount=0            ledger=100 code=10 flags=balancing_debit,
 
-                     id=1012 debit_account_id=$POOL_ACCOUNT credit_account_id=$TARGET_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10 flags=linked,
-                     id=1013 debit_account_id=$OPERATOR_ACCOUNT credit_account_id=$POOL_ACCOUNT amount=0 ledger=100 code=10 flags=balancing_credit;")
+                     id=1013 debit_account_id=$POOL_ACCOUNT credit_account_id=$TARGET_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10 flags=balancing_debit;")
+                    #  id=1014 debit_account_id=$OPERATOR_ACCOUNT credit_account_id=$POOL_ACCOUNT amount=0 ledger=100 code=10 flags=balancing_credit;")
 echo "$output"
 
 tb "lookup_accounts id=$POOL_ACCOUNT, id=$CHECK_ACCOUNT, id=$ACCOUNT_1, id=$ACCOUNT_2, id=$TARGET_ACCOUNT;"
