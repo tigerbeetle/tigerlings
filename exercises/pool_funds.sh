@@ -73,7 +73,6 @@ output=$(tb "create_transfers id=1002 debit_account_id=$CHECK_ACCOUNT credit_acc
                      id=1012 debit_account_id=$POOL_ACCOUNT credit_account_id=$ACCOUNT_2 amount=0            ledger=100 code=10 flags=balancing_debit,
 
                      id=1013 debit_account_id=$POOL_ACCOUNT credit_account_id=$TARGET_ACCOUNT amount=$POOL_AMOUNT ledger=100 code=10 flags=balancing_debit;")
-                    #  id=1014 debit_account_id=$OPERATOR_ACCOUNT credit_account_id=$POOL_ACCOUNT amount=0 ledger=100 code=10 flags=balancing_credit;")
 echo "$output"
 
 tb "lookup_accounts id=$POOL_ACCOUNT, id=$CHECK_ACCOUNT, id=$ACCOUNT_1, id=$ACCOUNT_2, id=$TARGET_ACCOUNT;"
