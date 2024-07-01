@@ -1,0 +1,15 @@
+diff --git a/exercises/030_correcting_transfers.sh b/exercises/030_correcting_transfers.sh
+index 703d0c9..40f49a0 100755
+--- a/exercises/030_correcting_transfers.sh
++++ b/exercises/030_correcting_transfers.sh
+@@ -19,8 +19,8 @@ tb "create_transfers id=30000 debit_account_id=3000 credit_account_id=3001 amoun
+ # 2. Correct the amount of the second transfer to be 100 instead of 199.
+ 
+ # Can you fill in the correct amounts?
+-tb "create_transfers id=30002 debit_account_id=3001 credit_account_id=3000 amount=??? ledger=300 code=90 user_data_128=12345,
+-                     id=30003 debit_account_id=3001 credit_account_id=3000 amount=??? ledger=300 code=91 user_data_128=67890;"
++tb "create_transfers id=30002 debit_account_id=3001 credit_account_id=3000 amount=100 ledger=300 code=90 user_data_128=12345,
++                     id=30003 debit_account_id=3001 credit_account_id=3000 amount=99  ledger=300 code=91 user_data_128=67890;"
+ 
+ # Note that we can use the user_data_128 field to link the new transfers to the original transfers.
+ # Also, we can use the code field to indicate the purpose of these transfers.

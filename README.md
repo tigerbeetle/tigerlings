@@ -59,3 +59,4 @@ You might also be interested in reading more in the [TigerBeetle docs](https://d
 - Balancing transfers (used when closing accounts)
 - Balance-conditional transfers
 - Balance bounds
+- Correcting transfers
