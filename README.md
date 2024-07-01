@@ -60,3 +60,4 @@ You might also be interested in reading more in the [TigerBeetle docs](https://d
 - Balance-conditional transfers
 - Balance bounds
 - Correcting transfers
+- Rate limiting
