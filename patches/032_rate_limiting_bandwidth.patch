@@ -1,0 +1,13 @@
+diff --git a/exercises/032_rate_limiting_bandwidth.sh b/exercises/032_rate_limiting_bandwidth.sh
+index b280c54..d4d8df8 100755
+--- a/exercises/032_rate_limiting_bandwidth.sh
++++ b/exercises/032_rate_limiting_bandwidth.sh
+@@ -15,7 +15,7 @@ tb "create_transfers id=32000 debit_account_id=3200 credit_account_id=3201 amoun
+ for ((i=1; i<=11; i++)); do
+     id=$((32000 + i))
+     # What should the amount be?
+-    amount=???
++    amount=1000000
+     output=$(tb "create_transfers id=${id} debit_account_id=3201 credit_account_id=3200 amount=${amount} timeout=60 ledger=320 code=10 flags=pending;")
+     echo "$output"
+ done
