@@ -1,4 +1,4 @@
-![Tigerlings](https://github.com/tigerbeetle/tigerlings/assets/3262610/9ad01a98-12db-415a-9c54-9c0596cd05cc)
+![Tigerlings](https://github.com/tigerbeetle/tigerlings/assets/3262610/d1b43eec-3ff1-4876-b725-e99fbec730fe)
 
 Welcome to Tigerlings!
 
