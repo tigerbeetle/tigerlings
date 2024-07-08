@@ -1,15 +1,15 @@
 diff --git a/exercises/033_rate_limiting_money.sh b/exercises/033_rate_limiting_money.sh
-index c4da8b2..c078640 100755
+index 1b4ff82..457e3dd 100755
 --- a/exercises/033_rate_limiting_money.sh
 +++ b/exercises/033_rate_limiting_money.sh
 @@ -22,8 +22,8 @@ tb "create_transfers id=33000 debit_account_id=3300 credit_account_id=3301 amoun
  for ((i=1; i<=11; i++)); do
      id=$((33002 + (i * 2)))
      # What flags should these two transfers have? (Hint: they aren't the same.)
--    output=$(tb "create_transfers id=${id}       debit_account_id=3301 credit_account_id=3300 amount=10 ledger=$USD_LEDGER code=10 flags=???,
--                                  id=$((id + 1)) debit_account_id=3303 credit_account_id=3302 amount=10 timeout=60 ledger=$RATE_LIMITING_LEDGER code=10 flags=???;")
-+    output=$(tb "create_transfers id=${id}       debit_account_id=3301 credit_account_id=3300 amount=10 ledger=$USD_LEDGER code=10 flags=linked,
-+                                  id=$((id + 1)) debit_account_id=3303 credit_account_id=3302 amount=10 timeout=60 ledger=$RATE_LIMITING_LEDGER code=10 flags=pending;")
-     echo "$output"
+-    tb "create_transfers id=${id}       debit_account_id=3301 credit_account_id=3300 amount=10 ledger=$USD_LEDGER code=10 flags=???,
+-                                  id=$((id + 1)) debit_account_id=3303 credit_account_id=3302 amount=10 timeout=60 ledger=$RATE_LIMITING_LEDGER code=10 flags=???;"
++    tb "create_transfers id=${id}       debit_account_id=3301 credit_account_id=3300 amount=10 ledger=$USD_LEDGER code=10 flags=linked,
++                                  id=$((id + 1)) debit_account_id=3303 credit_account_id=3302 amount=10 timeout=60 ledger=$RATE_LIMITING_LEDGER code=10 flags=pending;"
  done
  # The last two of these transfers will fail because the user has exceeded the rate limit.
+ 

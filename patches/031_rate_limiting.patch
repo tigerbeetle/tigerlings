@@ -1,5 +1,5 @@
 diff --git a/exercises/031_rate_limiting.sh b/exercises/031_rate_limiting.sh
-index ab84362..93c993e 100755
+index d32f976..9e28a6b 100755
 --- a/exercises/031_rate_limiting.sh
 +++ b/exercises/031_rate_limiting.sh
 @@ -13,7 +13,7 @@ tb "create_transfers id=31000 debit_account_id=3100 credit_account_id=3101 amoun
@@ -10,4 +10,4 @@ index ab84362..93c993e 100755
 +TIMEOUT=60
  for ((i=1; i<=11; i++)); do
      id=$((31000 + i))
-     output=$(tb "create_transfers id=${id} debit_account_id=3101 credit_account_id=3100 amount=1 timeout=${TIMEOUT} ledger=310 code=10 flags=pending;")
+     tb "create_transfers id=${id} debit_account_id=3101 credit_account_id=3100 amount=1 timeout=${TIMEOUT} ledger=310 code=10 flags=pending;"

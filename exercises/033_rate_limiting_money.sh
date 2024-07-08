@@ -22,9 +22,8 @@ tb "create_transfers id=33000 debit_account_id=3300 credit_account_id=3301 amoun
 for ((i=1; i<=11; i++)); do
     id=$((33002 + (i * 2)))
     # What flags should these two transfers have? (Hint: they aren't the same.)
-    output=$(tb "create_transfers id=${id}       debit_account_id=3301 credit_account_id=3300 amount=10 ledger=$USD_LEDGER code=10 flags=???,
-                                  id=$((id + 1)) debit_account_id=3303 credit_account_id=3302 amount=10 timeout=60 ledger=$RATE_LIMITING_LEDGER code=10 flags=???;")
-    echo "$output"
+    tb "create_transfers id=${id}       debit_account_id=3301 credit_account_id=3300 amount=10 ledger=$USD_LEDGER code=10 flags=???,
+                                  id=$((id + 1)) debit_account_id=3303 credit_account_id=3302 amount=10 timeout=60 ledger=$RATE_LIMITING_LEDGER code=10 flags=???;"
 done
 # The last two of these transfers will fail because the user has exceeded the rate limit.
 
