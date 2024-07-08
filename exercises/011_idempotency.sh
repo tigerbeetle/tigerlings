@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./tools/tb_function.sh
 
-# We've been accounts and transfers with different IDs.
+# We've seen accounts and transfers with different IDs.
 # What happens if we try to create the same account or transfer twice?
 
 # Let's try creating the same account multiple times:
