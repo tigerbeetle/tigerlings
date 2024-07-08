@@ -19,7 +19,7 @@ function tb() {
     # The one exception is if an account or transfer already exists, it will return the "exists" error.
     # We treat the "exists" error as a successful operation here.
     while IFS= read -r line; do
-        if [[ $line =~ ^Fail|Cannot  && $line != *"Result.exists." && $line != *"Result.linked_event_failed." ]]; then
+        if [[ $line =~ Fail|Cannot|panic  && $line != *"Result.exists." && $line != *"Result.linked_event_failed." ]]; then
             exit 1
         fi
     done <<< "$output"
