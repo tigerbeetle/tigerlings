@@ -18,7 +18,6 @@ tb "lookup_accounts id=1300, id=1301;"
 
 # Can you create another transfer so that account 1300 ends up with a net debit balance of 70?
 # (Hint: the debits_posted will remain at 100, but the credits_posted will increase to 30.)
-# Can you create another transfer so that account 1300 ends up with debits_posted of 70?
 tb "create_transfers id=13001 debit_account_id=??? credit_account_id=??? amount=30 ledger=130 code=10;"
 
 output=$(tb "lookup_accounts id=1300")

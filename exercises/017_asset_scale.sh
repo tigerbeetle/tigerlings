@@ -16,7 +16,7 @@ tb "create_transfers id=17000 debit_account_id=1700 credit_account_id=1701 amoun
 # TigerBeetle only uses integer amounts for precision and performance reasons.
 # You should represent amounts as multiples of the smallest unit an asset supports.
 # For example, if you're working with dollars, you might represent amounts in cents
-# so $1.5 would be represented as amount=1500.
+# so $1.5 would be represented as amount=150.
 
 # The asset "scale" should be considered a property of the ledger. You can use a different scale for each ledger.
 
