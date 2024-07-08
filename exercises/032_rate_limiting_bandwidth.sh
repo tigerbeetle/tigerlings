@@ -16,8 +16,7 @@ for ((i=1; i<=11; i++)); do
     id=$((32000 + i))
     # What should the amount be?
     amount=???
-    output=$(tb "create_transfers id=${id} debit_account_id=3201 credit_account_id=3200 amount=${amount} timeout=60 ledger=320 code=10 flags=pending;")
-    echo "$output"
+    tb "create_transfers id=${id} debit_account_id=3201 credit_account_id=3200 amount=${amount} timeout=60 ledger=320 code=10 flags=pending;"
 done
 
 # As before, if you want to test that the balance resets, you can uncomment the following lines to sleep for 60 seconds before creating the last transfer.

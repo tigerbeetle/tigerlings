@@ -16,8 +16,7 @@ tb "create_transfers id=31000 debit_account_id=3100 credit_account_id=3101 amoun
 TIMEOUT=???
 for ((i=1; i<=11; i++)); do
     id=$((31000 + i))
-    output=$(tb "create_transfers id=${id} debit_account_id=3101 credit_account_id=3100 amount=1 timeout=${TIMEOUT} ledger=310 code=10 flags=pending;")
-    echo "$output"
+    tb "create_transfers id=${id} debit_account_id=3101 credit_account_id=3100 amount=1 timeout=${TIMEOUT} ledger=310 code=10 flags=pending;"
 done
 # The last of these transfers will fail because the user has exceeded the rate limit.
 
