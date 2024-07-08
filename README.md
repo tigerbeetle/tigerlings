@@ -1,4 +1,4 @@
-# Tigerlings
+![Tigerlings](https://github.com/tigerbeetle/tigerlings/assets/3262610/9ad01a98-12db-415a-9c54-9c0596cd05cc)
 
 Welcome to Tigerlings!
 
@@ -16,8 +16,6 @@ git clone https://github.com/tigerbeetle/tigerlings.git
 cd tigerlings
 ./run.sh
 ```
-
-And that's it!
 
 The [run.sh](./run.sh) script runs each exercise, one at a time, and stops at the first broken one.
 
