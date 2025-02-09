@@ -1,5 +1,5 @@
 diff --git a/exercises/000_download.sh b/exercises/000_download.sh
-index 58420e3..d98204c 100755
+index e8b8bda..14209c4 100755
 --- a/exercises/000_download.sh
 +++ b/exercises/000_download.sh
 @@ -14,11 +14,11 @@
@@ -8,13 +8,13 @@ index 58420e3..d98204c 100755
  # Or build it from source:
 -# git clone https://github.com/tigerbeetle/tigerbeetle tigerbeetle_repo
 -# cd tigerbeetle_repo
--# ./scripts/install_zig.sh # or .bat if you're on Windows.
+-# ./zig/download.sh # or .bat if you're on Windows.
 -# zig/zig build
 -# cp tigerbeetle ../tigerbeetle
 -# cd ..
 +git clone https://github.com/tigerbeetle/tigerbeetle tigerbeetle_repo
 +cd tigerbeetle_repo
-+./scripts/install_zig.sh # or .bat if you're on Windows.
++./zig/download.sh # or .bat if you're on Windows.
 +zig/zig build
 +cp tigerbeetle ../tigerbeetle
 +cd ..
