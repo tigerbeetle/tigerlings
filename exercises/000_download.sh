@@ -16,7 +16,7 @@
 # Or build it from source:
 # git clone https://github.com/tigerbeetle/tigerbeetle tigerbeetle_repo
 # cd tigerbeetle_repo
-# ./scripts/install_zig.sh # or .bat if you're on Windows.
+# ./zig/download.sh # or .bat if you're on Windows.
 # zig/zig build
 # cp tigerbeetle ../tigerbeetle
 # cd ..
