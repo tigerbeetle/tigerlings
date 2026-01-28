@@ -2,13 +2,27 @@ name: Test Tigerlings
 
 on:
   push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
+  schedule:
+    # Run weekly on Tuesdays at 6am UTC (TigerBeetle releases on Mondays)
+    - cron: '0 6 * * 2'
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: ./tools/test.sh
+
+      - name: Download TigerBeetle
+        run: |
+          curl -Lo tigerbeetle.zip https://linux.tigerbeetle.com
+          unzip tigerbeetle.zip
+          ./tigerbeetle version
+
+      - name: Run exercises
+        run: ./tools/test.sh
