@@ -21,8 +21,8 @@ sleep 2
 
 # Now, we'll try to post both transfers.
 # Can you fix this request to post both transfers?
-output=$(tb "create_transfers id=25002 pending_id=??? flags=post_pending_transfer,
-                              id=25003 pending_id=25001 flags=???;")
+output=$(tb "create_transfers id=25002 pending_id=??? amount=200 flags=post_pending_transfer,
+                              id=25003 pending_id=25001 amount=100 flags=???;")
 echo "$output"
 
 # Notice that the first transfer returns an error because the pending transfer already timed out.
