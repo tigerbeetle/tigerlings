@@ -23,6 +23,9 @@ You can get started with exercise [000_download.sh](./exercises/000_download.sh)
 
 Once you've fixed the download script, run [run.sh](./run.sh) again to have it go to the next exercise.
 
+You can jump directly to a specific exercise number (e.g., `./run.sh 15`) to avoid waiting for all exercises to re-run once you solved them. 
+Note that the setup exercises (000–002) always run regardless.
+
 Happy learning!
 
 ## Need Help?
