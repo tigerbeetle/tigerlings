@@ -1,4 +1,3 @@
-diff --git a/exercises/026_two_phase_transfers_partial.sh b/exercises/026_two_phase_transfers_partial.sh
 --- a/exercises/026_two_phase_transfers_partial.sh
 +++ b/exercises/026_two_phase_transfers_partial.sh
 @@ -16,7 +16,7 @@
@@ -7,6 +6,6 @@ diff --git a/exercises/026_two_phase_transfers_partial.sh b/exercises/026_two_ph
                                id=26004 pending_id=26001 amount=200 flags=post_pending_transfer,
 -                              id=26005 pending_id=26002 amount=200 flags=post_pending_transfer;")
 +                              id=26005 pending_id=26002 amount=100 flags=post_pending_transfer;")
-
+ 
  # Uh oh! That didn't work!
  # The first transfer is actually okay -- specifying the same amount as the pending transfer posts the full amount.

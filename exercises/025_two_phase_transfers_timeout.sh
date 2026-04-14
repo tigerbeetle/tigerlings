@@ -30,7 +30,7 @@ echo "$output"
 # We can also check the account balances to see that only the second transfer was posted:
 tb "lookup_accounts id=2500, id=2501;"
 
-if [[ $output != *"Failed to create transfer (0): tigerbeetle.CreateTransferResult.pending_transfer_expired."* ]]; then
+if [[ $output != *"CreateTransferStatus.pending_transfer_expired"* ]]; then
     echo "The first transfer should have timed out!"
     exit 1
 fi

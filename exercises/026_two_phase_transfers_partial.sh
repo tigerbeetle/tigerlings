@@ -27,7 +27,7 @@ output=$(tb "create_transfers id=26003 pending_id=26000 amount=500 flags=post_pe
 # Once it posts, you can check the account balances to see the results.
 tb "lookup_accounts id=2600, id=2601;"
 
-if [[ $output == *"Failed to create transfer (2): tigerbeetle.CreateTransferResult.exceeds_pending_transfer_amount."* ]]; then
+if [[ $output == *"CreateTransferStatus.exceeds_pending_transfer_amount"* ]]; then
     echo "The third transfer should have been posted!"
     exit 1
 fi

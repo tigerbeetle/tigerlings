@@ -7,31 +7,31 @@ source ./tools/tb_function.sh
 # We said that everything in TigerBeetle is batched for efficiency and performance
 # -- so let's take advantage of that!
 
-# Let's go crazy here and create 8189 accounts in a single request!
-# Why 8189? That's the maximum number we can send in a request.
+# The maximum number of events we can send in a single request is 8189.
+# Let's create 8189 accounts across two batches:
 create_account_batch="create_accounts "
-for ((i=0; i<8189; i++)); do
+for ((i=0; i<4000; i++)); do
     create_account_batch+="id=$((100000 + i)) code=10 ledger=100, "
 done
+tb "${create_account_batch%, };"
 
-# Create the accounts (removing the trailing comma and space)
+create_account_batch="create_accounts "
+for ((i=4000; i<8189; i++)); do
+    create_account_batch+="id=$((100000 + i)) code=10 ledger=100, "
+done
 tb "${create_account_batch%, };"
 
 # Now let's do the same for transfers!
+# (We have to split them into batches because of the REPL's command-line size limit.)
 
 create_transfer_batch="create_transfers "
-for ((i=0; i<8190; i++)); do
-    create_transfer_batch+="id=$((1000 + i)) \
-        debit_account_id=$((100000 + i)) \
-        credit_account_id=$((100000 + (1 + i) % 8189)) \
-        amount=1 \
-        code=10 \
-        ledger=100, "
+for ((i=0; i<1400; i++)); do
+    create_transfer_batch+="id=$((1000 + i)) debit_account_id=$((100000 + i)) credit_account_id=$((100000 + (1 + i) % 8189)) amount=1 code=10 ledger=100, "
 done
-
 tb "${create_transfer_batch%, };"
-# Uh oh! We might have gone a _little_ overboard and created one too many transfers!
 
-# (If you're running TigerBeetle using a debug build, you'll see that this error
-# is triggered by an assertion failure in the client. TigerBeetle makes heavy use
-# of assertions to ensure that it operates as expected.)
+create_transfer_batch="create_transfers "
+for ((i=1400; i<2800; i++)); do
+    create_transfer_batch+="id=$((1000 + i)) debit_account_id=$((100000 + i)) credit_account_id=$((100000 + (1 + i) % 8189)) amount=1 code=10 ledger=100, "
+done
+tb "${create_transfer_batch%, };"

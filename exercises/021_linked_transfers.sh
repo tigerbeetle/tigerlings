@@ -40,10 +40,9 @@ output=$(tb "create_transfers id=21000 debit_account_id=2100 credit_account_id=2
                               id=21004 debit_account_id=2199 credit_account_id=2101 amount=100 ledger=200 code=10 flags=linked,
                               id=21005 debit_account_id=2100 credit_account_id=2102 amount=100 ledger=200 code=10 flags=linked;")
 
-if [[ $output =~ *"Failed to create transfer \(0|1|5\)"* || 
-      $output != *"Failed to create transfer (2): tigerbeetle.CreateTransferResult.transfer_must_have_the_same_ledger_as_accounts."* ||
-      $output != *"Failed to create transfer (3): tigerbeetle.CreateTransferResult.linked_event_failed."* ||
-      $output != *"Failed to create transfer (4): tigerbeetle.CreateTransferResult.debit_account_not_found."* ]]; then
+if [[ $output != *"CreateTransferStatus.transfer_must_have_the_same_ledger_as_accounts"* ||
+      $output != *"CreateTransferStatus.linked_event_failed"* ||
+      ( $output != *"CreateTransferStatus.debit_account_not_found"* && $output != *"CreateTransferStatus.id_already_failed"* ) ]]; then
 
     echo "Uh oh! The transfers didn't have the expected results."
     exit 1

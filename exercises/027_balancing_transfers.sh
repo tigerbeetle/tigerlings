@@ -26,7 +26,7 @@ tb "create_transfers id=27000 debit_account_id=2700 credit_account_id=2701 amoun
 # Notice that the amount is 0. TigerBeetle will calculate the account's net balance
 # (in this case the net credit balance because we're using a balancing_debit) and transfer it to the other account.
 # Also, we are ignoring the result of this command because if we run it a second time, it will return the
-# error `tigerbeetle.CreateTransferResult.exists_with_different_amount` because the amount will be 100 rather than 0.
+# error `tigerbeetle.CreateTransferStatus.exists_with_different_amount` because the amount will be 100 rather than 0.
 
 # Can you zero out the balance of the other account?
 # (Remember, we don't want a `balancing_debit` in this case...)

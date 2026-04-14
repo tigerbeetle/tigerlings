@@ -13,13 +13,17 @@ function tb() {
     local prefixed_output=$(echo "$output" | sed "s/^/${bold}[Client]${normal} /")
     echo "$prefixed_output"
 
-    # For efficiency, TigerBeetle only returns error responses.
-    # These will be printed to the console when we use the REPL.
-    # For the purposes of these exercises, we want to treat any error responses as script failures.
-    # The one exception is if an account or transfer already exists, it will return the "exists" error.
-    # We treat the "exists" error as a successful operation here.
+    # TigerBeetle returns a status for each event in the batch.
+    # For the purposes of these exercises, we want to treat any error status as script failure.
+    # The exceptions are:
+    #   - "exists" (idempotent re-creation)
+    #   - "linked_event_failed" (expected in linked event exercises)
+    #   - "created" (success)
     while IFS= read -r line; do
-        if [[ $line =~ Fail|Cannot|panic  && $line != *"Result.exists." && $line != *"Result.linked_event_failed." ]]; then
+        if [[ $line == *"Status."* && $line != *"Status.created"* && $line != *"Status.exists"* && $line != *"Status.linked_event_failed"* ]]; then
+            exit 1
+        fi
+        if [[ $line =~ Cannot|panic ]]; then
             exit 1
         fi
     done <<< "$output"
