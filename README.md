@@ -28,11 +28,7 @@ Note that the setup exercises (000–002) always run regardless.
 
 Happy learning!
 
-## Need Help?
-
-If you have questions about any of the exercises, feel free to open an issue on this repository or ask a question in the [TigerBeetle Slack](https://slack.tigerbeetle.com/invite). We're here to help!
-
-You might also be interested in reading more in the [TigerBeetle docs](https://docs.tigerbeetle.com/).
+During the exercises you might also be interested in reading more in the [TigerBeetle docs](https://docs.tigerbeetle.com/).
 
 ## What's Covered
 
